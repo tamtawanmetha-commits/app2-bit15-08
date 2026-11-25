@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "น้ำเปล่า",
+    "price": 10,
+    "category": "เครื่องดื่ม",
+    "stock": 50,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBa6nil0F6QJ6q0QkVND8DD6HYgYWelUelYFtgwC9Gg&s=10"
+  },
+  {
+    "id": "2",
+    "name": "น้ำผลไม้",
+    "price": 20,
+    "category": "เครื่องดื่ม",
+    "stock": 35,
+    "image": "https://media.allonline.7eleven.co.th/pdthumb/731476-01-allonline-sm.jpg"
+  },
+  {
+    "id": "3",
+    "name": "น้ำอัดลม",
+    "price": 30,
+    "category": "เครื่องดื่ม",
+    "stock": 20,
+    "image": "https://media.allonline.7eleven.co.th/pdthumb/343658-02-allonline-sm.jpg"
+  },
+  {
+    "id": "4",
+    "name": "ชาเขียว",
+    "price": 15,
+    "category": "ชาและกาแฟ",
+    "stock": 40,
+    "image": "https://media.allonline.7eleven.co.th/pdthumb/387028_010_Supermarket.jpg"
+  },
+  {
+    "id": "5",
+    "name": "กาแฟ",
+    "price": 25,
+    "category": "ชาและกาแฟ",
+    "stock": 25,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ67uwJRltcNriSSu2pNBK3yi_xA3djNB4KF7dE8M5MRQ&s=10"
+  },
+  {
+    "id": "6",
+    "name": "นมสด",
+    "price": 12,
+    "category": "นมและของหวาน",
+    "stock": 18,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7f5ZWKCfyufJwIV_qzFf2xcQeXlvswZscd6jOcYDKgw&s=10"
+  },
+  {
+    "id": "7",
+    "name": "เครื่องดื่มชูกำลัง",
+    "price": 35,
+    "category": "เครื่องดื่ม",
+    "stock": 15,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ417OMXLSgev-kZ2LMPXzeQQpqD3C3NgotiDHYOTEgeA&s=10"
+  },
+  {
+    "id": "8",
+    "name": "สมูทตี้",
+    "price": 28,
+    "category": "เครื่องดื่ม",
+    "stock": 30,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU1gdrUJEjDLlCIptHSsN2kNtOzkk8VdabsOY2uYMhOg&s=10"
+  },
+  {
+    "id": "9",
+    "name": "ชาเย็น",
+    "price": 18,
+    "category": "ชาและกาแฟ",
+    "stock": 22,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe5ykRDCeZwBWDeLkrhAUBLPkWGwNIRrAzZ5TJNwerrQ&s=10"
+  },
+  {
+    "id": "10",
+    "name": "โกโก้ร้อน",
+    "price": 22,
+    "category": "นมและของหวาน",
+    "stock": 8,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_5j12Le5Ipmzoui0iK5AQM5mAuvNSsPOteZbq2y2JQ&s=10"
+  }
+]

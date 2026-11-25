@@ -1,98 +1,94 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import Card from '@/components/card';
+import products from '@/data/products.json';
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+const categories = [...new Set(products.map((product) => product.category))];
+
+export default function App() {
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
-
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
+    <View style={styles.screen}>
+      <FlatList
+        data={products}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <View style={styles.header}>
+            <Text style={styles.eyebrow}>ร้านเครื่องดื่ม</Text>
+            <Text style={styles.title}>รายการสินค้า</Text>
+            <Text style={styles.summary}>
+              สินค้า {products.length} รายการ · {categories.length} หมวดหมู่
+            </Text>
+            <View style={styles.categories}>
+              {categories.map((category) => (
+                <View key={category} style={styles.categoryChip}>
+                  <Text style={styles.categoryText}>{category}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        }
+        renderItem={({ item }) => (
+          <Card
+            name={item.name}
+            price={item.price}
+            category={item.category}
+            image={item.image}
+            stock={item.stock}
           />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
+    backgroundColor: '#F6F7FB',
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+  list: {
+    paddingBottom: 24,
   },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+  header: {
+    paddingBottom: 20,
+    paddingHorizontal: 16,
+    paddingTop: 28,
   },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
+  eyebrow: {
+    color: '#0F766E',
+    fontSize: 13,
+    fontWeight: '700',
+    letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  title: {
+    color: '#172554',
+    fontSize: 28,
+    fontWeight: '800',
+    marginTop: 4,
+  },
+  summary: {
+    color: '#64748B',
+    fontSize: 14,
+    marginTop: 6,
+  },
+  categories: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 16,
+  },
+  categoryChip: {
+    backgroundColor: '#E2E8F0',
+    borderRadius: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  categoryText: {
+    color: '#334155',
+    fontSize: 12,
+    fontWeight: '600',
   },
 });
