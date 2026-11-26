@@ -16,9 +16,7 @@ export default function Card({ name, price, category, image, stock }: CardProps)
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.category}>{category}</Text>
         <Text style={styles.price}>฿{price.toLocaleString()}</Text>
-        <Text style={[styles.stock, stock < 10 && styles.lowStock]}>
-          คงเหลือ {stock.toLocaleString()} ชิ้น
-        </Text>
+        <Text style={styles.stock}>คงเหลือ {stock.toLocaleString()} ชิ้น</Text>
       </View>
     </View>
   );
@@ -72,8 +70,5 @@ const styles = StyleSheet.create({
   stock: {
     color: '#64748B',
     fontSize: 13,
-  },
-  lowStock: {
-    color: '#DC2626',
-  },
+  }
 });
